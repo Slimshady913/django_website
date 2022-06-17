@@ -1,0 +1,10 @@
+{% extends 'home/index.html' %}
+{% block contents %}
+<section id="blog">
+    <div class="container">
+        {{ todo_board }}
+        <h2>{{ todo_board.title}}</h2>
+        <p>{{ todo_board.content | linebreaksbr}}</p><br>
+    </div>
+</section>
+{% endblock contents %}

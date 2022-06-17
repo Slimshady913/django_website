@@ -1,0 +1,458 @@
+{% extends 'home/index.html' %}
+
+{% block contents %}
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            color: #555;
+            background: #eeeeee;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            padding: 50px 0;
+            font-weight: 400;
+            text-align: center;
+        }
+
+        p {
+            margin: 0 0 20px;
+            line-height: 1.5;
+        }
+
+        .main {
+            min-width: 320px;
+            max-width: 800px;
+            padding: 50px;
+            margin: 0 auto;
+            background: #ffffff;
+        }
+
+        section {
+            display: none;
+            padding: 20px 0 0;
+            border-top: 1px solid #ddd;
+        }
+
+        /*라디오버튼 숨김*/
+        input {
+            display: none;
+        }
+
+        label {
+            display: inline-block;
+            margin: 0 0 -1px;
+            padding: 15px 25px;
+            font-weight: 600;
+            text-align: center;
+            color: #bbb;
+            border: 1px solid transparent;
+        }
+
+        label:hover {
+            color: #2e9cdf;
+            cursor: pointer;
+        }
+
+        /*input 클릭시, label 스타일*/
+        input:checked+label {
+            color: #555;
+            border: 1px solid #ddd;
+            border-top: 2px solid #2e9cdf;
+            border-bottom: 1px solid #ffffff;
+        }
+
+        #tab1:checked~#content1,
+        #tab2:checked~#content2,
+        #tab3:checked~#content3,
+        #tab4:checked~#content4 {
+            display: block;
+        }
+    </style>
+    <style>
+        @import url("https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap");
+
+        button {
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .w-btn {
+            position: relative;
+            border: none;
+            display: inline-block;
+            padding: 15px 30px;
+            border-radius: 15px;
+            font-family: "paybooc-Light", sans-serif;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.25s;
+        }
+
+        .w-btn-outline {
+            position: relative;
+            left: 100px;
+            top: -100px;
+            padding: 15px 30px;
+            border-radius: 15px;
+            font-family: "paybooc-Light", sans-serif;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.25s;
+        }
+
+        .w-btn-blue {
+            background-color: #6aafe6;
+            color: #d4dfe6;
+        }
+
+        .w-btn-blue-outline {
+            border: 3px solid #6aafe6;
+            color: #6e6e6e;
+        }
+
+        .w-btn-blue-outline:hover {
+            background-color: #6aafe6;
+            color: #d4dfe6;
+        }
+
+        .w-btn:hover {
+            letter-spacing: 2px;
+            transform: scale(1.2);
+            cursor: pointer;
+        }
+
+        .w-btn-outline:hover {
+            letter-spacing: 2px;
+            transform: scale(1.2);
+            cursor: pointer;
+        }
+
+        .w-btn:active {
+            transform: scale(1.5);
+        }
+
+        .w-btn-outline:active {
+            transform: scale(1.5);
+        }
+
+
+        @keyframes gradient1 {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        @keyframes gradient2 {
+            0% {
+                background-position: 100% 50%;
+            }
+
+            50% {
+                background-position: 0% 50%;
+            }
+
+            100% {
+                background-position: 100% 50%;
+            }
+        }
+
+        @keyframes ring {
+            0% {
+                width: 30px;
+                height: 30px;
+                opacity: 1;
+            }
+
+            100% {
+                width: 300px;
+                height: 300px;
+                opacity: 0;
+            }
+        }
+    </style>
+    <style type="text/css">
+        body {
+            line-height: 2em;
+            font-family: "맑은 고딕";
+        }
+
+        ul,
+        li {
+            list-style: none;
+            text-align: center;
+            padding: 0;
+            margin: 0;
+        }
+
+        #mainWrapper {
+            width: 800px;
+            margin: 0 auto;
+            /*가운데 정렬*/
+        }
+
+        #mainWrapper>ul>li:first-child {
+            text-align: center;
+            font-size: 14pt;
+            height: 40px;
+            vertical-align: middle;
+            line-height: 30px;
+        }
+
+        #ulTable {
+            margin-top: 10px;
+        }
+
+
+        #ulTable>li:first-child>ul>li {
+            background-color: #c9c9c9;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        #ulTable>li>ul {
+            clear: both;
+            padding: 0px auto;
+            position: relative;
+            min-width: 40px;
+        }
+
+        #ulTable>li>ul>li {
+            float: left;
+            font-size: 10pt;
+            border-bottom: 1px solid silver;
+            vertical-align: baseline;
+        }
+
+        #ulTable>li>ul>li:first-child {
+            width: 10%;
+        }
+
+        /*No 열 크기*/
+        #ulTable>li>ul>li:first-child+li {
+            width: 45%;
+        }
+
+        /*제목 열 크기*/
+        #ulTable>li>ul>li:first-child+li+li {
+            width: 20%;
+        }
+
+        /*작성일 열 크기*/
+        #ulTable>li>ul>li:first-child+li+li+li {
+            width: 15%;
+        }
+
+        /*작성자 열 크기*/
+        #ulTable>li>ul>li:first-child+li+li+li+li {
+            width: 10%;
+        }
+
+        /*조회수 열 크기*/
+
+        #divPaging {
+            clear: both;
+            margin: 0 auto;
+            width: 220px;
+            height: 50px;
+        }
+
+        #divPaging>div {
+            float: left;
+            width: 30px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        #liSearchOption {
+            clear: both;
+        }
+
+        #liSearchOption>div {
+            margin: 0 auto;
+            margin-top: 30px;
+            width: auto;
+            height: 100px;
+
+        }
+
+        .left {
+            text-align: left;
+        }
+    </style>
+    <style>
+        @import url("https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap");
+
+        button {
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .w-btn {
+            position: relative;
+            border: none;
+            display: inline-block;
+            padding: 15px 30px;
+            border-radius: 15px;
+            font-family: "paybooc-Light", sans-serif;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.25s;
+        }
+
+        .w-btn-outline {
+            position: relative;
+            left: 100px;
+            top: -100px;
+            padding: 15px 30px;
+            border-radius: 15px;
+            font-family: "paybooc-Light", sans-serif;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.25s;
+        }
+
+        .w-btn-blue {
+            background-color: #6aafe6;
+            color: #d4dfe6;
+        }
+
+        .w-btn-blue-outline {
+            border: 3px solid #6aafe6;
+            color: #6e6e6e;
+        }
+
+        .w-btn-blue-outline:hover {
+            background-color: #6aafe6;
+            color: #d4dfe6;
+        }
+
+        .w-btn:hover {
+            letter-spacing: 2px;
+            transform: scale(1.2);
+            cursor: pointer;
+        }
+
+        .w-btn-outline:hover {
+            letter-spacing: 2px;
+            transform: scale(1.2);
+            cursor: pointer;
+        }
+
+        .w-btn:active {
+            transform: scale(1.5);
+        }
+
+        .w-btn-outline:active {
+            transform: scale(1.5);
+        }
+
+
+        @keyframes gradient1 {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        @keyframes gradient2 {
+            0% {
+                background-position: 100% 50%;
+            }
+
+            50% {
+                background-position: 0% 50%;
+            }
+
+            100% {
+                background-position: 100% 50%;
+            }
+        }
+
+        @keyframes ring {
+            0% {
+                width: 30px;
+                height: 30px;
+                opacity: 1;
+            }
+
+            100% {
+                width: 300px;
+                height: 300px;
+                opacity: 0;
+            }
+        }
+    </style>
+
+    <title>게시판</title>
+</head>
+
+<body>
+
+    <h1>게시판</h1>
+    <div style="margin: 20px 0px;"></div>
+    <div class="main">
+        <div><a href="{% url 'board:board_write' %}"><button id="but" style="float:right;" class="w-btn w-btn-blue"
+                    type="button">글쓰기</button></a></div>
+        <input id="tab1" type="radio" name="tabs" checked>
+        <label for="tab1">자유게시판</label>
+
+        <input id="tab2" type="radio" name="tabs">
+        <label for="tab2">강의평</label>
+
+        <section id="content1">
+            <ul>
+                {% for board in fr_boards %}
+                {% if board %}
+                <a href="/board/detail/{{ board.id }}" target="_self">
+                    <div>{{ board.title }} / {{ board.writer}} / {{ board.write_dttm }}</div>
+                </a>
+                {% endif %}
+                {% endfor %}
+            </ul>
+        </section>
+
+        <section id="content2">
+
+            <ul>
+                {% for board in co_boards %}
+                {% if board %}
+                <a href="/board/detail/{{ board.id }}" target="_self">
+                    <div>{{ board.title }} / {{ board.writer}} / {{ board.write_dttm }}</div>
+                </a>
+                {% endif %}
+                {% endfor %}
+            </ul>
+
+        </section>
+
+    </div>
+</body>
+
+
+{% endblock contents %}

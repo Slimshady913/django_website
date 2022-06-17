@@ -1,0 +1,49 @@
+
+{% extends 'home/index.html' %}
+<head>
+  
+</head>
+
+
+        {% block contents %}
+        <body style="background-color:rgb(247, 247, 242)">
+        <br>
+        
+        <div class="mt-5">
+        <form action="" method="POST">
+            
+            <div  style=" background-color:white; box-shadow:15px 15px 10px gray; width: 300px;height: 330px; margin:0 auto ; display: flex;justify-content: center;align-items: center;padding-bottom:0%;">
+                
+                <div  style="text-align:center;">
+                    <img style="height: 30px; object-fit: contain"
+                src="https://mblogthumb-phinf.pstatic.net/MjAxNzAyMDVfNzMg/MDAxNDg2Mjc1MDMwNzM0.rSKeZB0hvYCsW94_LxTEzl2d14TwqW2GBu-Ksp8em2wg.Cq-16aw5waKXINdXxCPOquVlKqDYQEa0caC_Wuo_7pcg.GIF.openclasskorea/pnu_logo_transparent.gif?type=w800"></a>
+                    {% csrf_token %}
+            
+                    {% for form in forms %}
+                    <br/>
+                    <br/>
+                    <label for="{{ form.id_for_label }}">{{ form.label }}</label>
+                    <br/>
+                    
+                    {{ form }}
+                
+                {% endfor %}
+
+                {% if error %}
+                {{ error }}
+                {% endif %}
+                    
+                <br/>
+                    <br/>
+                <button type="submit" name="login-submit" class="btn btn-lg btn-primary" value="login">login</button>
+                </div>
+            </div>
+        </form>
+        </div>
+    </body>
+   
+        {% endblock contents %}
+
+
+
+

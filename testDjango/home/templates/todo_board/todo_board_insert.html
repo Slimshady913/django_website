@@ -1,0 +1,23 @@
+{% extends 'home/index.html' %}
+{% block contents %}
+<br>
+</br>
+<div class="mt-5" style="border:1px solid black; width: 300px;height: 330px;margin:0 auto;">
+    <br>
+<div class="pt-2" style="text-align:center;" >
+    <h4>일정추가</h4>
+    <div class="container pt-4">
+        
+        <form method="POST" class="post-form" action="{% url 'todo_board:todo_board_insert' %}">
+           {%csrf_token%}
+
+           {{form.as_p}}
+           <br>
+           <button type="submit" class="save btn btn-primary">Save</button>
+        </br>
+        </form>
+    </div>
+
+</div>
+
+{% endblock contents %}

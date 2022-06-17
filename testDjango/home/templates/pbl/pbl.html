@@ -1,0 +1,61 @@
+{% extends 'home/index.html' %}
+{% block contents %}
+<script>
+    function check(clicked_id){
+        alert(clicked_id)
+        document.getElementById(clicked_id).disabled='true';
+    }
+</script>
+<body style= "background:rgb(247, 247, 242)">
+    <div class="mt-3">
+        <form>
+            <br>
+            <h3 align="center">PBL 예약</h3>
+            <p align="center">2022.06.10</p>
+            <div class="container" style=" background-color:white; box-shadow:15px 15px 10px gray; width: 1100px; height: 500px">
+                <div class="form-group mt-5 pb-3" style="text-align:center;">
+                    <br>
+                    <br>
+                    
+                    <br>
+                    <br>
+                <h3><I>3층</I></h3>
+                    <br>
+                    
+                    <div class="btn-group">
+                        <button class="btn btn-primary btn-lg" type="button" id = "3층 8:00~10:00 예약 완료!" onclick="check(this.id)" >8:00</button> 
+                        <button class="btn btn-primary btn-lg" type="button" id = "3층 10:00~12:00 예약 완료!" onclick="check(this.id)" >10:00</button> 
+                        <button class="btn btn-primary btn-lg" type="button" id = "3층 12:00~14:00 예약 완료!" onclick="check(this.id)" >12:00</button> 
+                        <button class="btn btn-primary btn-lg" type="button" id = "3층 14:00~16:00 예약 완료!" onclick="check(this.id)" >14:00</button> 
+                        <button class="btn btn-primary btn-lg" type="button" id = "3층 16:00~18:00 예약 완료!" onclick="check(this.id)" >16:00</button> 
+                        <button class="btn btn-primary btn-lg" type="button" id = "3층 18:00~20:00 예약 완료!" onclick="check(this.id)" >18:00</button> 
+                        <button class="btn btn-primary btn-lg" type="button" id = "3층 20:00~22:00 예약 완료!" onclick="check(this.id)" >20:00</button> 
+                        <button class="btn btn-primary btn-lg" type="button" id = "3층 20:00~24:00 예약 완료!" onclick="check(this.id)" >22:00</button> 
+                    </div>
+                </div>
+                <br>
+                </br>
+                <div class="form-group"style="text-align:center;" >
+                    <h3><I>4층</I></h3>
+                    <br>
+                    
+                    <div class="btn-group">
+                        <button class="btn btn-primary btn-lg" type="button" id = "4층 8:00~10:00 예약 완료!" onclick="check(this.id)" >8:00</button> 
+                        <button class="btn btn-primary btn-lg" type="button" id = "4층 10:00~12:00 예약 완료!" onclick="check(this.id)" >10:00</button> 
+                        <button class="btn btn-primary btn-lg" type="button" id = "4층 12:00~14:00 예약 완료!" onclick="check(this.id)" >12:00</button> 
+                        <button class="btn btn-primary btn-lg" type="button" id = "4층 14:00~16:00 예약 완료!" onclick="check(this.id)" >14:00</button> 
+                        <button class="btn btn-primary btn-lg" type="button" id = "4층 16:00~18:00 예약 완료!" onclick="check(this.id)" >16:00</button> 
+                        <button class="btn btn-primary btn-lg" type="button" id = "4층 18:00~20:00 예약 완료!" onclick="check(this.id)" >18:00</button> 
+                        <button class="btn btn-primary btn-lg" type="button" id = "4층 20:00~22:00 예약 완료!" onclick="check(this.id)" >20:00</button> 
+                        <button class="btn btn-primary btn-lg" type="button" id = "4층 20:00~24:00 예약 완료!" onclick="check(this.id)" >22:00</button> 
+                    </div>
+                </div>
+                <br>
+                <br>
+            </div>    
+       
+        </form>
+    </div>
+</body>
+
+{% endblock contents %}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<Html lang="kr">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <!-- 구글 머티리얼 아이콘 -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+        rel="stylesheet">
+    <title> 의생명융합공학부 </title>
+</head>
+
+<body class="pt">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a href="/"><div class="container px-4 px-lg-5">
+            <img style="height: 30px; object-fit: contain"
+                src="https://mblogthumb-phinf.pstatic.net/MjAxNzAyMDVfNzMg/MDAxNDg2Mjc1MDMwNzM0.rSKeZB0hvYCsW94_LxTEzl2d14TwqW2GBu-Ksp8em2wg.Cq-16aw5waKXINdXxCPOquVlKqDYQEa0caC_Wuo_7pcg.GIF.openclasskorea/pnu_logo_transparent.gif?type=w800"></a>
+            <input class="form-control" style="width: 200px" type="search" placeholder="Search" aria-label="Search">
+            <div>
+                <a href='/'><span class="material-icons">home</span></a>
+                <a href="{% url 'board:board_list' %}"><span class="material-icons">menu</span></a>
+                <a href="{% url 'todo_board:todo_board_list' %}"><span class="material-icons">check</span></a>
+                <a href="/pbl"><span class="material-icons">touch_app</span></a>
+                {% if login_session %}
+                <a href="{% url 'user:logout' %}"><span class="material-icons-outlined">logout</span></a>
+                {% else %}
+                <a href="{% url 'user:login' %}"><span class="material-icons-outlined">login</span></a>
+                <a href="{% url 'user:register' %}"><span class="material-icons-outlined">add_box</span></a>
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+</body> 
+    
+{% block contents %}
+<header class="py-5 bg-image-fulb " style="background-image: url('https://bce.pusan.ac.kr/sites/bce/atchmnfl/bbs/12004/37D03E25-D911-A06E-0703-9FBE744C5067.jpg'); background-size: contain; ">
+    <div class="text-center my-5 " style="padding-bottom:150px">
+        <!-- <img class="img-fluid rounded-circle mb-4  pb-5 " src="https://dummyimage.com/150x150/6c757d/dee2e6.jpg" alt="..." /> -->
+        <h1 class="text-white fs-3 fw-bolder"></h1>
+        <p class="text-white-50 mb-0"></p>
+    </div>
+
+</header>
+
+            
+
+<section class="py-5">
+    <div class="container my-3"> 
+        <div class="row justify-content-center">
+            <div class="row mx-auto pb-5" >
+                <div class="col-sm-3 d-flex justify-content-center"><span class="material-icons-two-tone" style="font-size:50px">home</span></div>
+                <div class="col-sm-3 d-flex justify-content-center"><span class="material-icons-two-tone" style="font-size:50px">reorder</span></div>
+                <div class="col-sm-3 d-flex justify-content-center"><span class="material-icons-two-tone" style="font-size:50px">done</span></div>
+                <div class="col-sm-3 d-flex justify-content-center"><span class="material-icons-two-tone" style="font-size:50px">touch_app</span></div>
+            </div>
+            </br>
+            <div class="row mx-auto " >
+                <div class="col-sm-3 d-flex justify-content-center">의생명융합공학부만의 웹사이트<br></div>
+                <div class="col-sm-3 d-flex justify-content-center">자유로운 의견교환이 가능한 게시판</div>
+                <div class="col-sm-3 d-flex justify-content-center">학과 일정 및 학년별 과제일정 공유</div>
+                <div class="col-sm-3 d-flex justify-content-center">PBL실 예약</div>  
+            </div>
+            
+        </div>
+    </div>
+</section> 
+
+<!-- Footer-->
+<footer class="py-5 bg-dark">
+    <div class="container"><p class="m-0 text-center text-white">BME &copy; Unix Website 2022</p></div>
+</footer>
+
+</body>
+{% endblock contents %}
+
+</Html>
