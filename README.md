@@ -1,1 +1,1 @@
-# do_it_django_a_to_z
+# 학과 홈페이지 입니다.
